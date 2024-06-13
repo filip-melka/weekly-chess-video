@@ -4,6 +4,7 @@ import Scene1 from './scenes/Scene1'
 import Scene2 from './scenes/Scene2'
 import Scene3 from './scenes/Scene3'
 import Scene4 from './scenes/Scene4'
+import Scene5 from './scenes/Scene5'
 
 type Props = {
 	weekNum: number
@@ -14,6 +15,8 @@ type Props = {
 	opponentAvatarURL: string
 	opponentUsername: string
 	opponentRating: number
+	originalRating: number
+	newRating: number
 }
 
 export default function MyComposition({
@@ -25,6 +28,8 @@ export default function MyComposition({
 	opponentAvatarURL,
 	opponentUsername,
 	opponentRating,
+	originalRating,
+	newRating,
 }: Props) {
 	return (
 		<Background>
@@ -49,6 +54,13 @@ export default function MyComposition({
 					username={opponentUsername}
 					rating={opponentRating}
 					avatarURL={opponentAvatarURL}
+				/>
+			</Sequence>
+			<Sequence from={650} durationInFrames={200}>
+				<Scene5
+					weekNum={weekNum}
+					originalRating={originalRating}
+					newRating={newRating}
 				/>
 			</Sequence>
 		</Background>
