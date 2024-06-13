@@ -9,7 +9,7 @@ type Props = {
 export default function MyComposition({ weekNum }: Props) {
 	return (
 		<Background>
-			<Sequence>
+			<Sequence durationInFrames={100}>
 				<Scene1 weekNum={weekNum} />
 			</Sequence>
 		</Background>
