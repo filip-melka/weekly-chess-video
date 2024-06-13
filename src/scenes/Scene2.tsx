@@ -9,6 +9,7 @@ import {
 import { colors } from '../utils/colors'
 import { springDriver } from '../utils/springDriver'
 import { makeTransform, scale, translate } from '@remotion/animation-utils'
+import { WeekNum } from '../components/WeekNum'
 
 export default function Scene2({
 	weekNum,
@@ -27,22 +28,6 @@ export default function Scene2({
 			<WeekNum weekNum={weekNum} />
 			<Text noOfGames={noOfGames} />
 		</AbsoluteFill>
-	)
-}
-
-function WeekNum({ weekNum }: { weekNum: number }) {
-	return (
-		<div
-			style={{
-				color: colors.white,
-				fontSize: 30,
-				opacity: 0.4,
-				position: 'absolute',
-				top: 50,
-			}}
-		>
-			Week #{weekNum}
-		</div>
 	)
 }
 
