@@ -39,7 +39,7 @@ export default function MyComposition({
 			<Sequence from={100} durationInFrames={120}>
 				<Scene2 weekNum={weekNum} noOfGames={noOfGames} />
 			</Sequence>
-			<Sequence from={220} durationInFrames={230}>
+			<Sequence from={220} durationInFrames={200}>
 				<Scene3
 					weekNum={weekNum}
 					noOfGames={noOfGames}
@@ -48,7 +48,7 @@ export default function MyComposition({
 					noOfLosses={noOfLosses}
 				/>
 			</Sequence>
-			<Sequence from={450} durationInFrames={200}>
+			<Sequence from={420} durationInFrames={200}>
 				<Scene4
 					weekNum={weekNum}
 					username={opponentUsername}
@@ -56,7 +56,7 @@ export default function MyComposition({
 					avatarURL={opponentAvatarURL}
 				/>
 			</Sequence>
-			<Sequence from={650} durationInFrames={200}>
+			<Sequence from={620} durationInFrames={200}>
 				<Scene5
 					weekNum={weekNum}
 					originalRating={originalRating}

@@ -41,11 +41,10 @@ export default function Scene5({ weekNum, originalRating, newRating }: Props) {
 				alignItems: 'center',
 				color: colors.white,
 				textAlign: 'center',
-				transform,
 			}}
 		>
 			<WeekNum weekNum={weekNum} />
-			<div>
+			<div style={{ transform }}>
 				<Text transform={appear({ frame, fps, delay: 20 })} />
 				<Rating
 					transform={appear({ frame, fps, delay: 40 })}

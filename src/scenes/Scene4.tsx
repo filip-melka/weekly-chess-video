@@ -54,9 +54,9 @@ export default function Scene4({
 				<Avatar
 					username={username}
 					avatarURL={avatarURL}
-					transform={appear({ frame, fps, delay: 60 })}
+					transform={appear({ frame, fps, delay: 55 })}
 				/>
-				<Rating transform={appear({ frame, fps, delay: 70 })} rating={rating} />
+				<Rating transform={appear({ frame, fps, delay: 75 })} rating={rating} />
 			</div>
 		</AbsoluteFill>
 	)

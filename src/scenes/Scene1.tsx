@@ -14,11 +14,11 @@ import { makeTransform, rotate, translate } from '@remotion/animation-utils'
 const timings = {
 	Title: {
 		durationInFrames: 30,
-		delay: 30,
+		delay: 20,
 	},
 	WeekNum: {
 		durationInFrames: 30,
-		delay: 50,
+		delay: 40,
 	},
 	RapidText: {
 		durationInFrames: 30,

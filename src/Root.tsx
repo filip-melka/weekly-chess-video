@@ -7,7 +7,7 @@ export const RemotionRoot: React.FC = () => {
 			<Composition
 				id='MyComp'
 				component={MyComposition}
-				durationInFrames={850}
+				durationInFrames={820}
 				fps={30}
 				width={1200}
 				height={674}
@@ -18,8 +18,8 @@ export const RemotionRoot: React.FC = () => {
 					noOfDraws: 2,
 					noOfLosses: 1,
 					opponentAvatarURL:
-						'https://img.freepik.com/premium-photo/graphic-designer-digital-avatar-generative-ai_934475-9292.jpg',
-					opponentUsername: 'itsfilipmelka',
+						'https://cdn.hashnode.com/res/hashnode/image/upload/v1704265966452/HqKDXjGgI.png?w=500&h=500&fit=crop&crop=faces&auto=compress,format&format=webp',
+					opponentUsername: 'filipmelka24',
 					opponentRating: 896,
 					originalRating: 825,
 					newRating: 855,

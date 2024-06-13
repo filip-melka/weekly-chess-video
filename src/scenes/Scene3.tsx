@@ -57,7 +57,7 @@ function Stats({ noOfWins, noOfDraws, noOfLosses }: StatsProps) {
 			spring({
 				frame,
 				fps,
-				delay: 200,
+				delay: 170,
 				durationInFrames: 20,
 				reverse: true,
 				config: {
@@ -252,7 +252,7 @@ function Text({ noOfGames }: { noOfGames: number }) {
 			spring({
 				frame,
 				fps,
-				delay: 210,
+				delay: 180,
 				durationInFrames: 20,
 				reverse: true,
 			})
