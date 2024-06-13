@@ -1,6 +1,5 @@
 import {
 	AbsoluteFill,
-	Easing,
 	interpolate,
 	spring,
 	useCurrentFrame,
