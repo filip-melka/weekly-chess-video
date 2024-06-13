@@ -7,7 +7,7 @@ export const RemotionRoot: React.FC = () => {
 			<Composition
 				id='MyComp'
 				component={MyComposition}
-				durationInFrames={600}
+				durationInFrames={700}
 				fps={30}
 				width={1200}
 				height={674}
@@ -17,6 +17,10 @@ export const RemotionRoot: React.FC = () => {
 					noOfWins: 2,
 					noOfDraws: 2,
 					noOfLosses: 1,
+					opponentAvatarURL:
+						'https://img.freepik.com/premium-photo/graphic-designer-digital-avatar-generative-ai_934475-9292.jpg',
+					opponentUsername: 'itsfilipmelka',
+					opponentRating: 896,
 				}}
 			/>
 		</>
