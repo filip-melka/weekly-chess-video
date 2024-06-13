@@ -2,12 +2,14 @@ import {
 	AbsoluteFill,
 	Img,
 	interpolate,
+	spring,
 	staticFile,
 	useCurrentFrame,
 	useVideoConfig,
 } from 'remotion'
 import { springDriver } from '../utils/springDriver'
 import { colors } from '../utils/colors'
+import { makeTransform, rotate, translate } from '@remotion/animation-utils'
 
 const timings = {
 	Title: {
@@ -38,6 +40,7 @@ export default function Scene1({ weekNum }: { weekNum: number }) {
 			<Title frame={frame} fps={fps} />
 			<WeekNum height={height} frame={frame} weekNum={weekNum} fps={fps} />
 			<RapidText frame={frame} fps={fps} />
+			<Pawn frame={frame} fps={fps} />
 		</AbsoluteFill>
 	)
 }
@@ -159,5 +162,39 @@ function RapidText({ frame, fps }: { frame: number; fps: number }) {
 			<Img src={staticFile('rapid-logo.png')} />
 			<span>Rapid</span>
 		</div>
+	)
+}
+
+function Pawn({ frame, fps }: { frame: number; fps: number }) {
+	const driver = spring({
+		fps,
+		frame,
+		reverse: true,
+		from: 1,
+		to: 0,
+		config: {
+			stiffness: 100,
+			damping: 13,
+		},
+		durationInFrames: 30,
+		delay: 45,
+	})
+
+	const rotation = interpolate(driver, [0, 1], [-10, 10])
+	const x = interpolate(driver, [0, 1], [0, 300])
+
+	const transform = makeTransform([rotate(rotation), translate(x, 0)])
+
+	return (
+		<Img
+			src={staticFile('pawn.png')}
+			style={{
+				position: 'absolute',
+				right: 90,
+				bottom: 90,
+				width: 117,
+				transform,
+			}}
+		/>
 	)
 }
