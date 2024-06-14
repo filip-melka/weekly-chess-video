@@ -45,7 +45,10 @@ export default function Scene5({ weekNum, originalRating, newRating }: Props) {
 		>
 			<WeekNum weekNum={weekNum} />
 			<div style={{ transform }}>
-				<Text transform={appear({ frame, fps, delay: 20 })} />
+				<Text
+					ratingHasChanged={newRating !== originalRating}
+					transform={appear({ frame, fps, delay: 20 })}
+				/>
 				<Rating
 					transform={appear({ frame, fps, delay: 40 })}
 					originalRating={originalRating}
@@ -82,7 +85,13 @@ function appear({
 	])
 }
 
-function Text({ transform }: { transform: string }) {
+function Text({
+	transform,
+	ratingHasChanged,
+}: {
+	transform: string
+	ratingHasChanged: boolean
+}) {
 	return (
 		<div
 			style={{
@@ -94,7 +103,9 @@ function Text({ transform }: { transform: string }) {
 			}}
 		>
 			<Img src={staticFile('rapid-logo.png')} />
-			<p style={{ fontSize: 35, margin: 0 }}>My new rapid rating</p>
+			<p style={{ fontSize: 35, margin: 0 }}>
+				{ratingHasChanged ? 'My new rapid rating' : 'My rapid rating is'}
+			</p>
 		</div>
 	)
 }
@@ -140,7 +151,9 @@ function Rating({
 				}}
 			>
 				{differenceSymbol({ originalRating, newRating })}{' '}
-				{newRating !== originalRating ? newRating - originalRating : ''}
+				{newRating !== originalRating
+					? Math.abs(newRating - originalRating)
+					: ''}
 			</p>
 		</div>
 	)
@@ -154,6 +167,6 @@ function differenceSymbol({
 	newRating: number
 }) {
 	if (newRating > originalRating) return '▲'
-	if (newRating > originalRating) return '▼'
+	if (newRating < originalRating) return '▼'
 	return ''
 }

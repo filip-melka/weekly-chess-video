@@ -38,11 +38,11 @@ const noWinsGames = {
 	opponentUsername: null,
 	opponentRating: 0,
 	originalRating: 825,
-	newRating: 855,
+	newRating: 813,
 }
 
 const noGames = {
-	weekNum: 1,
+	weekNum: 5,
 	noOfGames: 0,
 	noOfWins: 0,
 	noOfDraws: 0,
@@ -51,7 +51,7 @@ const noGames = {
 	opponentUsername: null,
 	opponentRating: 896,
 	originalRating: 825,
-	newRating: 855,
+	newRating: 825,
 }
 
 export const RemotionRoot: React.FC = () => {
@@ -64,7 +64,16 @@ export const RemotionRoot: React.FC = () => {
 				fps={30}
 				width={1200}
 				height={674}
-				defaultProps={noAvatarImage}
+				defaultProps={noGames}
+				calculateMetadata={async ({ props }) => {
+					let durationInFrames = 820
+					if (props.noOfGames === 0) durationInFrames = 500
+					else if (props.noOfWins === 0) durationInFrames = 620
+
+					return {
+						durationInFrames,
+					}
+				}}
 			/>
 		</>
 	)

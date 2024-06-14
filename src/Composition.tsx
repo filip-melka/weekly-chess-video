@@ -5,6 +5,7 @@ import Scene2 from './scenes/Scene2'
 import Scene3 from './scenes/Scene3'
 import Scene4 from './scenes/Scene4'
 import Scene5 from './scenes/Scene5'
+import Scene6 from './scenes/Scene6'
 
 type Props = {
 	weekNum: number
@@ -12,8 +13,8 @@ type Props = {
 	noOfWins: number
 	noOfDraws: number
 	noOfLosses: number
-	opponentAvatarURL: string
-	opponentUsername: string
+	opponentAvatarURL: string | null
+	opponentUsername: string | null
 	opponentRating: number
 	originalRating: number
 	newRating: number
@@ -36,27 +37,43 @@ export default function MyComposition({
 			<Sequence durationInFrames={100}>
 				<Scene1 weekNum={weekNum} />
 			</Sequence>
-			<Sequence from={100} durationInFrames={120}>
-				<Scene2 weekNum={weekNum} noOfGames={noOfGames} />
-			</Sequence>
-			<Sequence from={220} durationInFrames={200}>
-				<Scene3
-					weekNum={weekNum}
-					noOfGames={noOfGames}
-					noOfWins={noOfWins}
-					noOfDraws={noOfDraws}
-					noOfLosses={noOfLosses}
-				/>
-			</Sequence>
-			<Sequence from={420} durationInFrames={200}>
-				<Scene4
-					weekNum={weekNum}
-					username={opponentUsername}
-					rating={opponentRating}
-					avatarURL={opponentAvatarURL}
-				/>
-			</Sequence>
-			<Sequence from={620} durationInFrames={200}>
+			{noOfGames > 0 ? (
+				<>
+					<Sequence from={100} durationInFrames={120}>
+						<Scene2 weekNum={weekNum} noOfGames={noOfGames} />
+					</Sequence>
+					<Sequence from={220} durationInFrames={200}>
+						<Scene3
+							weekNum={weekNum}
+							noOfGames={noOfGames}
+							noOfWins={noOfWins}
+							noOfDraws={noOfDraws}
+							noOfLosses={noOfLosses}
+						/>
+					</Sequence>
+					{opponentUsername && (
+						<Sequence from={420} durationInFrames={200}>
+							<Scene4
+								weekNum={weekNum}
+								username={opponentUsername}
+								rating={opponentRating}
+								avatarURL={
+									opponentAvatarURL ||
+									'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLsbDRAHDZCUxgdFHSARF96NvKPWCboAe7-Q&s'
+								}
+							/>
+						</Sequence>
+					)}
+				</>
+			) : (
+				<Sequence from={100} durationInFrames={200}>
+					<Scene6 weekNum={weekNum} />
+				</Sequence>
+			)}
+			<Sequence
+				from={noOfGames === 0 ? 300 : opponentUsername ? 620 : 420}
+				durationInFrames={200}
+			>
 				<Scene5
 					weekNum={weekNum}
 					originalRating={originalRating}
