@@ -16,7 +16,7 @@ const regularGames = {
 }
 
 const noAvatarImage = {
-	weekNum: 1,
+	weekNum: 15,
 	noOfGames: 5,
 	noOfWins: 2,
 	noOfDraws: 2,
@@ -29,7 +29,7 @@ const noAvatarImage = {
 }
 
 const noWinsGames = {
-	weekNum: 1,
+	weekNum: 9,
 	noOfGames: 5,
 	noOfWins: 0,
 	noOfDraws: 2,

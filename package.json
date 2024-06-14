@@ -7,6 +7,7 @@
   "dependencies": {
     "@remotion/animation-utils": "^4.0.172",
     "@remotion/cli": "4.0.172",
+    "@remotion/gif": "4.0.174",
     "@remotion/google-fonts": "^4.0.172",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",

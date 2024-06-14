@@ -1,7 +1,5 @@
 import {
 	AbsoluteFill,
-	Img,
-	OffthreadVideo,
 	random,
 	spring,
 	useCurrentFrame,
@@ -10,6 +8,7 @@ import {
 import { colors } from '../utils/colors'
 import { makeTransform, scale } from '@remotion/animation-utils'
 import { WeekNum } from '../components/WeekNum'
+import { Gif } from '@remotion/gif'
 
 const GIFs = [
 	'https://media0.giphy.com/media/10zsjaH4g0GgmY/giphy.gif?cid=6c09b952kop0w7zcr9xjk3ymivcfa4omgq8umchoy20kjzw6&ep=v1_gifs_search&rid=giphy.gif&ct=g',
@@ -56,7 +55,7 @@ export default function Scene6({ weekNum }: { weekNum: number }) {
 				>
 					There was no time for chess this week...🤷‍♂️
 				</p>
-				<Img
+				<Gif
 					src={GIFs[randomGIFIndex]}
 					style={{
 						transform: appear({ frame, fps, delay: 60 }),
