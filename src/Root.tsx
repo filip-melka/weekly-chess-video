@@ -1,5 +1,6 @@
 import { Composition } from 'remotion'
 import MyComposition from './Composition'
+import { getData } from './utils/dataFetching.js'
 
 const regularGames = {
 	weekNum: 1,
@@ -66,6 +67,9 @@ export const RemotionRoot: React.FC = () => {
 				height={674}
 				defaultProps={noGames}
 				calculateMetadata={async ({ props }) => {
+					const data = await getData(new Date('2024-06-15'), 'filipmelka24')
+					console.log(data)
+					// ---
 					let durationInFrames = 820
 					if (props.noOfGames === 0) durationInFrames = 500
 					else if (props.noOfWins === 0) durationInFrames = 620
