@@ -40,6 +40,7 @@ function Board() {
 		>
 			{new Array(8).fill(0).map((_, row) => (
 				<div
+					key={'row-' + row}
 					style={{
 						display: 'flex',
 						width: '100%',
@@ -48,6 +49,7 @@ function Board() {
 				>
 					{new Array(8).fill(0).map((_, col) => (
 						<div
+							key={'row-' + row + ';col-' + col}
 							style={{
 								background:
 									col % 2 === row % 2 ? colors.tile.light : colors.tile.dark,
