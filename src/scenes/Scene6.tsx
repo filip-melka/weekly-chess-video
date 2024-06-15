@@ -57,11 +57,9 @@ export default function Scene6({ weekNum }: { weekNum: number }) {
 				</p>
 				<Gif
 					src={GIFs[randomGIFIndex]}
-					style={{
-						transform: appear({ frame, fps, delay: 60 }),
-						height: 300,
-						borderRadius: 5,
-					}}
+					height={300}
+					width={400}
+					fit='contain'
 				/>
 			</div>
 		</AbsoluteFill>
