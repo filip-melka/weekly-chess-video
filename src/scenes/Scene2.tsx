@@ -77,7 +77,7 @@ function Text({ noOfGames }: { noOfGames: number }) {
 				fontSize={100}
 			/>
 			<AppearingText
-				text='games'
+				text={noOfGames === 1 ? 'game' : 'games'}
 				delay={40}
 				frame={frame}
 				fps={fps}

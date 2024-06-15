@@ -277,7 +277,9 @@ function Text({ noOfGames }: { noOfGames: number }) {
 			<p style={{ margin: 0, fontSize: 100, color: colors.green.light }}>
 				{noOfGames}
 			</p>
-			<p style={{ margin: 0, fontSize: 50, color: colors.white }}>games</p>
+			<p style={{ margin: 0, fontSize: 50, color: colors.white }}>
+				{noOfGames === 1 ? 'game' : 'games'}
+			</p>
 		</div>
 	)
 }
