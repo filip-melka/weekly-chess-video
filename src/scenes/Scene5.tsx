@@ -13,11 +13,11 @@ import { makeTransform, scale } from '@remotion/animation-utils'
 
 type Props = {
 	weekNum: number
-	originalRating: number
+	previousRating: number
 	newRating: number
 }
 
-export default function Scene5({ weekNum, originalRating, newRating }: Props) {
+export default function Scene5({ weekNum, previousRating, newRating }: Props) {
 	const { fps } = useVideoConfig()
 	const frame = useCurrentFrame()
 
@@ -46,12 +46,12 @@ export default function Scene5({ weekNum, originalRating, newRating }: Props) {
 			<WeekNum weekNum={weekNum} />
 			<div style={{ transform }}>
 				<Text
-					ratingHasChanged={newRating !== originalRating}
+					ratingHasChanged={newRating !== previousRating}
 					transform={appear({ frame, fps, delay: 20 })}
 				/>
 				<Rating
 					transform={appear({ frame, fps, delay: 40 })}
-					originalRating={originalRating}
+					previousRating={previousRating}
 					newRating={newRating}
 					frame={frame}
 					fps={fps}
@@ -111,18 +111,18 @@ function Text({
 }
 function Rating({
 	transform,
-	originalRating,
+	previousRating,
 	newRating,
 	frame,
 	fps,
 }: {
 	transform: string
-	originalRating: number
+	previousRating: number
 	newRating: number
 	frame: number
 	fps: number
 }) {
-	const value = interpolate(frame, [70, 110], [originalRating, newRating], {
+	const value = interpolate(frame, [70, 110], [previousRating, newRating], {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	})
@@ -147,12 +147,12 @@ function Rating({
 					right: -70,
 					fontSize: 30,
 					transform: appear({ frame, fps, delay: 70 }),
-					color: newRating > originalRating ? colors.green.light : colors.red,
+					color: newRating > previousRating ? colors.green.light : colors.red,
 				}}
 			>
-				{differenceSymbol({ originalRating, newRating })}{' '}
-				{newRating !== originalRating
-					? Math.abs(newRating - originalRating)
+				{differenceSymbol({ previousRating, newRating })}{' '}
+				{newRating !== previousRating
+					? Math.abs(newRating - previousRating)
 					: ''}
 			</p>
 		</div>
@@ -160,13 +160,13 @@ function Rating({
 }
 
 function differenceSymbol({
-	originalRating,
+	previousRating,
 	newRating,
 }: {
-	originalRating: number
+	previousRating: number
 	newRating: number
 }) {
-	if (newRating > originalRating) return '▲'
-	if (newRating < originalRating) return '▼'
+	if (newRating > previousRating) return '▲'
+	if (newRating < previousRating) return '▼'
 	return ''
 }

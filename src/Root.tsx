@@ -25,7 +25,7 @@ const noAvatarImage = {
 	opponentAvatarURL: null,
 	opponentUsername: 'filipmelka24',
 	opponentRating: 896,
-	originalRating: 825,
+	previousRating: 825,
 	newRating: 855,
 }
 
@@ -38,7 +38,7 @@ const noWinsGames = {
 	opponentAvatarURL: null,
 	opponentUsername: null,
 	opponentRating: 0,
-	originalRating: 825,
+	previousRating: 825,
 	newRating: 813,
 }
 
@@ -51,7 +51,7 @@ const noGames = {
 	opponentAvatarURL: null,
 	opponentUsername: null,
 	opponentRating: 896,
-	originalRating: 825,
+	previousRating: 825,
 	newRating: 825,
 }
 

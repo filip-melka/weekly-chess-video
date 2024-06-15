@@ -16,7 +16,7 @@ type Props = {
 	opponentAvatarURL: string | null
 	opponentUsername: string | null
 	opponentRating: number
-	originalRating: number
+	previousRating: number
 	newRating: number
 }
 
@@ -29,7 +29,7 @@ export default function MyComposition({
 	opponentAvatarURL,
 	opponentUsername,
 	opponentRating,
-	originalRating,
+	previousRating,
 	newRating,
 }: Props) {
 	return (
@@ -76,7 +76,7 @@ export default function MyComposition({
 			>
 				<Scene5
 					weekNum={weekNum}
-					originalRating={originalRating}
+					previousRating={previousRating}
 					newRating={newRating}
 				/>
 			</Sequence>
