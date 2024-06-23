@@ -1,14 +1,3 @@
-/* const {
-	getAvatarURL,
-	getFirstGameDate,
-	getMonday,
-	getRatingBeforeGame,
-	getWeekNum,
-	getWeeklyGames,
-	getResult,
-	formatMonth,
-} = require('./dataFetching.js') */
-
 import {
 	formatMonth,
 	getAvatarURL,
