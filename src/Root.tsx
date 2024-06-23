@@ -44,7 +44,10 @@ export const RemotionRoot: React.FC = () => {
 						new Date().valueOf() - 7 * 24 * 3600 * 1000
 					)
 
-					const data: WeeklyData = await getData(lastWeekDate, 'filipmelka24')
+					const data: WeeklyData = await getData(
+						lastWeekDate,
+						process.env.USERNAME
+					)
 
 					let durationInFrames = 820
 					if (data.noOfGames === 0) durationInFrames = 500
