@@ -134,6 +134,7 @@ export function getResult(result) {
     if (result === "win") return "win"
     if (
         [
+            "draw",
             "agreed",
             "stalemate",
             "repetition",
