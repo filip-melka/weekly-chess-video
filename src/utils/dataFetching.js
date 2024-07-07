@@ -149,7 +149,7 @@ export function getResult(result) {
 export function getMonday(date) {
     const day = date.getDay()
     const diff = date.getDate() - day + (day == 0 ? -6 : 1)
-    return new Date(date.setDate(diff))
+    return new Date(new Date(date.setDate(diff)).setHours(0, 0, 0))
 }
 
 export function formatMonth(month) {
