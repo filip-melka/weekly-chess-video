@@ -211,7 +211,10 @@ export async function getRatingBeforeGame(username, month, year, gameId) {
     for (let i = 0; i < archives.length - 1; i++) {
         const [currentYear, currentMonth] = archives[i].slice(-7).split("/")
         const [nextYear, nextMonth] = archives[i + 1].slice(-7).split("/")
-        if (nextYear === year && nextMonth === month) {
+        if (
+            nextYear.localeCompare(year) === 0 &&
+            nextMonth.localeCompare(month) === 0
+        ) {
             // the previous game took place in the month of 'currentMonth' of the year 'currentYear'
             const games = await fetchGames(username, currentMonth, currentYear)
 
@@ -220,6 +223,9 @@ export async function getRatingBeforeGame(username, month, year, gameId) {
                     return games[i].player.rating
                 }
             }
+
+            // player's previous game was the last game of 'currentMonth', 'currentYear'
+            return games[games.length - 1].player.rating
         }
     }
 
