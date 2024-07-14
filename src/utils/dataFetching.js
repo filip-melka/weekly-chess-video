@@ -34,7 +34,7 @@ export async function getData(date, username) {
 
     for (let i = 0; i < myWeeklyGames.length; i++) {
         const game = myWeeklyGames[i]
-        if (getResult(game.result) === "win") {
+        if (game.result === "win") {
             const gameDate = new Date(game.end_time * 1000)
             const opponentPreviousRating = await getRatingBeforeGame(
                 game.opponent.username,
@@ -61,8 +61,8 @@ export async function getData(date, username) {
         noOfDraws = 0,
         noOfLosses = 0
     myWeeklyGames.forEach((game) => {
-        if (getResult(game.result) === "win") noOfWins++
-        else if (getResult(game.result) === "draw") noOfDraws++
+        if (game.result === "win") noOfWins++
+        else if (game.result === "draw") noOfDraws++
         else noOfLosses++
     })
 
@@ -140,6 +140,7 @@ export function getResult(result) {
             "repetition",
             "insufficient",
             "50move",
+            "timevsinsufficient",
         ].includes(result)
     )
         return "draw"
